@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context reloadable="false">
+
+<Resource name="jdbc/catalogDB" auth="Container" type="javax.sql.DataSource"
+
+            maxActive="100" maxIdle="30" maxWait="10000"
+
+        username="store" password="st0re"
+
+        driverClassName="net.sourceforge.jtds.jdbc.Driver"
+
+        url="jdbc:jtds:sqlserver://dsql.probuild.com/catalog;appName=web_catalog;progName=web_catalog;"/>
+
+
+
+</Context>
+
+<!-- Changed catalog to prep_catalog for test purpose only -->

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<components xmlns="http://jboss.com/products/seam/components"
+            xmlns:core="http://jboss.com/products/seam/core"
+            xmlns:persistence="http://jboss.com/products/seam/persistence"
+            xmlns:security="http://jboss.com/products/seam/security"
+            xmlns:transaction="http://jboss.com/products/seam/transaction"
+            xmlns:wicket="http://jboss.com/products/seam/wicket"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation=
+                "http://jboss.com/products/seam/core http://jboss.com/products/seam/core-2.2.xsd 
+                 http://jboss.com/products/seam/persistence http://jboss.com/products/seam/persistence-2.2.xsd
+                 http://jboss.com/products/seam/security http://jboss.com/products/seam/security-2.2.xsd
+                 http://jboss.com/products/seam/transaction http://jboss.com/products/seam/transaction-2.2.xsd
+                 http://jboss.com/products/seam/wicket http://jboss.com/products/seam/wicket-2.2.xsd">
+
+    <core:init jndi-pattern="" debug="true"/>
+
+<!--    <core:manager conversation-timeout="120000" -->
+<!--                  concurrent-request-timeout="500"-->
+<!--                  conversation-id-parameter="cid"/>-->
+                  
+    <transaction:entity-transaction entity-manager="#{em}"/>
+                  
+    <persistence:entity-manager-factory name="dataSyncDatabase"/>
+    
+    <persistence:managed-persistence-context name="em"
+                               auto-create="true" 
+                    entity-manager-factory="#{dataSyncDatabase}"/>
+
+<!--    <security:identity authenticate-method="#{authenticator.authenticate}"/>-->
+    
+    <wicket:web-application application-class="com.probuild.retail.web.catalog.datasync.view.DashboardApplication" />
+
+</components>

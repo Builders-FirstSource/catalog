@@ -1,0 +1,248 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+    <artifactId>catalog</artifactId>
+    <groupId>com.probuild.retail.web.catalog</groupId>
+    <version>1.0.0</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.probuild.retail.web.catalog</groupId>
+  <artifactId>catalog-client</artifactId>
+  <packaging>jar</packaging>
+  <name>Desktop client</name>
+  <version>1.0.0</version>
+  <description>Catalog administration tool for the desktop</description>
+  <url>http://probuild.com</url>
+  
+  <properties>
+    <!-- used to set JNLP codebase attribute -->
+    <catalogServer>https://qpgmr5.probuild.com:8443/catalog</catalogServer>
+  </properties>
+  
+  <dependencies>
+    <dependency>
+        <groupId>com.probuild.retail.web.catalog</groupId>
+        <artifactId>catalog-ext</artifactId>
+        <version>1.0.0</version>
+        <exclusions>
+            <exclusion>
+                <groupId>org.broadleafcommerce</groupId>
+                <artifactId>broadleaf-framework-web</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>org.broadleafcommerce</groupId>
+                <artifactId>broadleaf-profile</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>org.compass-project</groupId>
+                <artifactId>compass</artifactId>
+            </exclusion>            
+        </exclusions>
+    </dependency>
+
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring</artifactId>
+    <version>2.5.6</version>
+</dependency>
+
+    <dependency>
+        <groupId>com.caucho</groupId>
+        <artifactId>hessian</artifactId>
+        <version>3.1.5</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>com.miglayout</groupId>
+        <artifactId>miglayout</artifactId>
+        <version>3.7.1</version>
+        <classifier>swing</classifier>
+    </dependency>
+    
+    <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>1.2.14</version>
+    </dependency>
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.5.6</version>
+    </dependency>
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>1.5.6</version>
+    </dependency>
+    <dependency>
+        <groupId>com.ibm</groupId>
+        <artifactId>as400</artifactId>
+        <version>6.3</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi</artifactId>
+        <version>3.5-FINAL</version>
+    </dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>3.1.0.GA</version>
+    </dependency>
+    <dependency>
+        <groupId>org.netbeans.validation</groupId>
+        <artifactId>swing-validator</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+	<dependency>
+	    <groupId>commons-lang</groupId>
+	    <artifactId>commons-lang</artifactId>
+	    <version>2.4</version>
+	</dependency>
+	<dependency>
+        <groupId>commons-configuration</groupId>
+        <artifactId>commons-configuration</artifactId>
+        <version>1.6</version>
+    </dependency>
+	<dependency>
+	    <groupId>backport-util-concurrent</groupId>
+	    <artifactId>backport-util-concurrent-java12</artifactId>
+	    <version>3.1</version>
+	</dependency>
+	
+    <dependency>
+        <groupId>org.fife</groupId>
+        <artifactId>rsyntaxtextarea</artifactId>
+        <version>1.4.0</version>
+    </dependency>
+<!--    <dependency>-->
+<!--        <groupId>org.fife</groupId>-->
+<!--        <artifactId>rsyntaxtextarea-spellcheck</artifactId>-->
+<!--        <version>1.4.0</version>-->
+<!--    </dependency>-->
+    
+  </dependencies>
+  
+  <build>
+    
+    <plugins>
+        <plugin>
+            <groupId>org.codehaus.mojo.webstart</groupId>
+            <artifactId>webstart-maven-plugin</artifactId>
+            <version>1.0-alpha-2</version>
+	        <executions>
+	           <execution>
+	               <phase>package</phase>
+	              <goals>
+	                 <goal>jnlp-single</goal>
+	              </goals>
+	           </execution>
+	        </executions>
+	        <configuration>
+	            <!-- JNLP generation -->
+                <jnlp>
+                  <!-- default values -->
+                  <!--inputTemplateResourcePath>${project.basedir}</inputTemplateResourcePath-->
+                  <!--inputTemplate>src/main/jnlp/template.vm</inputTemplate--> <!-- relative to inputTemplateResourcePath -->
+                  <outputFile>catalogAdmin.jnlp</outputFile> <!-- defaults to launch.jnlp -->
+
+                  <mainClass>com.probuild.retail.web.catalog.desktop.CatalogFrame</mainClass>
+                </jnlp>
+                
+                
+                <excludeTransitive>false</excludeTransitive> <!-- default? -->
+ 
+                <libPath>lib</libPath>
+
+			  <!-- SIGNING -->
+			  <!-- defining this will automatically sign the jar and its dependencies, if necessary -->
+			  <sign>
+			    <keystore>fillme</keystore>
+			    <keypass>fillme</keypass>
+			    <storepass>fillme</storepass>
+			    <!--storetype>fillme</storetype-->
+			    <alias>fillme</alias>
+			    <validity>765</validity>
+			    
+			    <!--validity>fillme</validity-->
+			
+			    <!-- only required for generating the keystore -->
+			    <dnameCn>fillme</dnameCn>
+			    <dnameOu>San Diego Software Development</dnameOu>
+			    <dnameO>Probuild</dnameO>
+			    <dnameL>San Diego</dnameL>
+			    <dnameSt>California</dnameSt>
+			    <dnameC>US</dnameC>
+			
+			    <verify>false</verify> <!-- causes trouble with install phase? --> <!-- verify that the signing operation succeeded -->
+			
+			    <!-- KEYSTORE MANAGEMENT -->
+			    <keystoreConfig>
+			      <delete>true</delete> <!-- delete the keystore -->
+			      <gen>true</gen>       <!-- optional shortcut to generate the store. -->
+			    </keystoreConfig>
+			  </sign>
+			
+			  <!-- BUILDING PROCESS -->
+			  <offlineAllowed>true</offlineAllowed>
+			  <pack200>true</pack200>
+			  <gzip>true</gzip>
+			
+			  <!-- causes a version attribute to be output in each jar resource element, optional, default is false -->
+			  <outputJarVersions>false</outputJarVersions>
+			
+			  <!--install>false</install--> <!-- not yet supported -->
+			  <verbose>false</verbose>
+			
+            </configuration>
+	        
+        </plugin>
+        
+        <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-jar-plugin</artifactId>
+	        <version>2.3</version>
+	        <configuration>
+	            <archive>
+	                <manifest>
+	                    <addClasspath>true</addClasspath>
+	                    <mainClass>com.probuild.retail.web.catalog.desktop.CatalogFrame</mainClass>
+	                    <classpathPrefix>lib/</classpathPrefix> 
+	                </manifest>
+	                <manifestEntries>
+	                    <Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
+	                    <Implementation-Title>${project.name}</Implementation-Title>
+	                    <Implementation-Version>${project.version}</Implementation-Version>
+	                    <Specification-Version>1.0.2</Specification-Version>
+	                    <!-- <Specification-Version>${project.version}</Specification-Version> -->
+	                </manifestEntries>
+	            </archive>
+	        </configuration>
+	    </plugin>
+        
+    </plugins>
+  </build>
+
+	<profiles>
+		<profile>
+			<id>testEnv</id>
+			<properties>
+				<catalogServer>http://10.36.3.131:9090/catalog</catalogServer>
+			</properties>
+		</profile>
+		<profile>
+            <id>qaEnv</id>
+            <properties>
+                <catalogServer>http://192.168.222.11:8080/catalog</catalogServer>
+            </properties>
+        </profile>
+        <profile>
+            <id>prodEnv</id>
+            <properties>
+                <catalogServer>http://www.dixieline.com:8080/catalog</catalogServer>
+            </properties>
+        </profile>
+	</profiles>
+	
+</project>

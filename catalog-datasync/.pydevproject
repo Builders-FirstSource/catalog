@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse-pydev version="1.0"?>
+
+<pydev_project>
+<pydev_property name="org.python.pydev.PYTHON_PROJECT_INTERPRETER">Default</pydev_property>
+<pydev_property name="org.python.pydev.PYTHON_PROJECT_VERSION">jython 2.5</pydev_property>
+<pydev_pathproperty name="org.python.pydev.PROJECT_EXTERNAL_SOURCE_PATH">
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\antlr-2.7.6.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\as400-6.3.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\catalog-ext-1.0.0.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\commons-beanutils-1.7.0.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\commons-codec-1.3.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\commons-collections-3.2.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\commons-dbutils-1.3.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\commons-digester-1.8.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\commons-discovery-0.4.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\commons-io-1.3.2.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\commons-logging-1.1.1.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\dom4j-1.6.1.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\ejb3-persistence-1.0.2.GA.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\el-api-1.0.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\hibernate-annotations-3.4.0.GA.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\hibernate-commons-annotations-3.1.0.GA.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\hibernate-core-3.3.0.SP1.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\hibernate-entitymanager-3.4.0.GA.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\hibernate-search-3.1.0.GA.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\hibernate-validator-3.1.0.GA.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\hsqldb-1.7.2.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\javassist-3.11.0.GA.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\jboss-el-1.0_02.CR4.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\jboss-seam-debug-2.2.0.GA.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\jboss-seam-wicket-2.2.0.GA.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\jsf-facelets-1.1.15.B1.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\jta-1.1.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\log4j-1.2.14.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\lucene-core-2.4.0.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\myfaces-api-1.2.7.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\myfaces-impl-1.2.7.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\org.jboss.seam-jboss-seam-2.2.0.GA.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\quartz-1.6.5.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\slf4j-api-1.5.6.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\slf4j-log4j12-1.5.6.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\wicket-1.3.7.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\wicket-ioc-1.3.5.jboss1.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\xml-apis-1.0.b2.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\xpp3_min-1.1.3.4.O.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-datasync\target\catalog-datasync-1.0.0\WEB-INF\lib\xstream-1.1.3.jar</path>
+<path>C:\Documents and Settings\jsimmons\workspace\fundcontrol\catalog\catalog-client\target\jnlp\lib\hessian-3.1.5.jar</path>
+<path>C:\Documents and Settings\jsimmons\My Documents\Downloads\mysql-connector-java-5.0.8\mysql-connector-java-5.0.8\mysql-connector-java-5.0.8-bin.jar</path>
+</pydev_pathproperty>
+</pydev_project>

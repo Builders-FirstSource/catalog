@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+                      "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Manage Jobs</title>
+</head>
+<body>
+    
+    <a wicket:id="homeLnk" href="#" style="font-size: 12pt;"><img src="img/go-home.png" style="border: none;"/>Home</a> &nbsp; | &nbsp;
+    <a wicket:id="manageLnk" href="#" style="font-size: 12pt;"><img src="img/preferences-system.png" style="border: none;"/>Manage Jobs</a>
+
+    <br/>
+    <br/>
+    
+    <span wicket:id="errors"/>
+    
+    <div wicket:id="jobs" style="width: 650px;">
+
+        <div style="width: 600px; float: left; margin-bottom: 10px; margin-left: 10px;">
+            
+            <form wicket:id="manageJobForm">
+            <input type="hidden" name="jobId" value="0"/>
+            
+            <span wicket:id="jobName" style="font-weight:bold; font-size:14pt;" >Price Update</span>
+            
+            <table>
+                <tr>
+                    <td align="right">Script</td>
+                    <td align="left"><input wicket:id="jobScript" type="text" size="35"/></td>
+                </tr>
+                <tr>
+                    <td align="right">Schedule</td>
+                    <td align="left"><input wicket:id="jobSchedule" type="text" size="35"/></td>
+                </tr>
+                <tr>
+                    <td align="right">E-Mail(s)</td>
+                    <td align="left"><input wicket:id="jobEmail" type="text" size="35"/></td>
+                </tr>
+                <tr>
+                    <td align="right">Max History Count</td>
+                    <td align="left"><input wicket:id="jobHistoryCount" type="text" size="5"/></td>
+                </tr>
+                <tr>
+                    <td align="right" colspan="2">
+                        <button wicket:id="deleteBtn" type="submit"><table><tr><td><img src="img/edit-clear.png"/></td><td valign="middle">Delete</td></tr></table></button>
+                        <button wicket:id="saveBtn" type="submit"><table><tr><td><img src="img/system-file-manager.png"/></td><td valign="middle">Save</td></tr></table></button>
+                    </td>
+                </tr>
+            </table>
+            </form>
+            
+        </div>
+        
+        <wicket:remove>
+        <div id="item2" style="width: 600px; float: left; margin-bottom: 10px; margin-left: 10px;">
+            
+            <form>
+            <input type="hidden" name="jobId" value="0"/>
+            <span style="font-weight:bold; font-size:14pt;" >Inventory Update</span>
+            <table>
+                <tr>
+                    <td align="right">Script</td>
+                    <td align="left"><input type="text" size="35"/></td>
+                </tr>
+                <tr>
+                    <td align="right">Schedule</td>
+                    <td align="left"><input type="text" size="35"/></td>
+                </tr>
+                <tr>
+                    <td align="right">E-Mail(s)</td>
+                    <td align="left"><input type="text" size="35"/></td>
+                </tr>
+                <tr>
+                    <td align="right">Max History Count</td>
+                    <td align="left"><input type="text" size="5"/></td>
+                </tr>
+                <tr>
+                    <td align="right" colspan="2">
+                        <button type="button"><table><tr><td><img src="img/edit-clear.png"/></td><td valign="middle">Delete</td></tr></table></button>
+                        <button type="submit"><table><tr><td><img src="img/system-file-manager.png"/></td><td valign="middle">Save</td></tr></table></button>
+                    </td>
+                </tr>
+            </table>
+            </form>
+        </div>
+          
+        <div id="item3" style="width: 600px; float: left; margin-bottom: 10px; margin-left: 10px;">
+            
+            <form>
+            <input type="hidden" name="jobId" value="0"/>
+            <span style="font-weight:bold; font-size:14pt;" >Item Statics</span>
+            <table>
+                <tr>
+                    <td align="right">Script</td>
+                    <td align="left"><input type="text" size="35"/></td>
+                </tr>
+                <tr>
+                    <td align="right">Schedule</td>
+                    <td align="left"><input type="text" size="35"/></td>
+                </tr>
+                <tr>
+                    <td align="right">E-Mail(s)</td>
+                    <td align="left"><input type="text" size="35"/></td>
+                </tr>
+                <tr>
+                    <td align="right">Max History Count</td>
+                    <td align="left"><input type="text" size="5"/></td>
+                </tr>
+                <tr>
+                    <td align="right" colspan="2">
+                        <button type="button"><table><tr><td><img src="img/edit-clear.png"/></td><td valign="middle">Delete</td></tr></table></button>
+                        <button type="submit"><table><tr><td><img src="img/system-file-manager.png"/></td><td valign="middle">Save</td></tr></table></button>
+                    </td>
+                </tr>
+            </table>
+            </form>
+            
+        </div>
+        </wicket:remove>
+
+        <br style="clear:both; line-height:0;"/>
+    </div>
+    
+    
+    
+    
+    <div style="width: 650px;">
+        
+        <div style="width: 600px; float: left; margin-bottom: 10px; margin-left: 10px;">
+            
+            <form wicket:id="newJobForm" action="manage">
+            <input type="hidden" name="jobId" value="-1"/>
+            <input type="hidden" wicket:id="jobName" name="jobId" value="0"/>
+            <span style="font-weight:bold; font-size:14pt;" >Define New Job</span>
+            <table>
+                <tr>
+                    <td align="right">Job Name</td>
+                    <td align="left"><input wicket:id="newJobName" type="text" size="35"/></td>
+                </tr>
+                <tr>
+                    <td align="right">Script</td>
+                    <td align="left"><input wicket:id="jobScript" type="text" size="35"/></td>
+                </tr>
+                <tr>
+                    <td align="right">Schedule</td>
+                    <td align="left"><input wicket:id="jobSchedule" type="text" size="35"/></td>
+                </tr>
+                <tr>
+                    <td align="right">E-Mail(s)</td>
+                    <td align="left"><input wicket:id="jobEmail" type="text" size="35"/></td>
+                </tr>
+                <tr>
+                    <td align="right">Max History Count</td>
+                    <td align="left"><input wicket:id="jobHistoryCount" type="text" size="5"/></td>
+                </tr>
+                <tr>
+                    <td align="right" colspan="2">
+                        <button type="submit"><table><tr><td><img src="img/system-file-manager.png"/></td><td valign="middle">Save</td></tr></table></button>
+                    </td>
+                </tr>
+            </table>
+            </form>
+            
+        </div>
+        
+        <br style="clear:both; line-height:0;"/>
+    </div>
+    
+</body>
+</html>

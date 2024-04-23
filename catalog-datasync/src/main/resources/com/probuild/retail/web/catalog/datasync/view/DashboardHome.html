@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+                      "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Dashboard</title>
+</head>
+<body>
+
+    <span style="font-size: 16pt">Retail Catalog Maintenance Jobs</span>
+    
+    <div wicket:id="jobs" style="width: 650px;">
+        <div id="item" style="width: 600px; float: left; margin-bottom: 10px; margin-left: 10px;">
+            
+            <div id="idicator" style="width: 40px; float: left;">
+                <div id="statusIcon" style="text-align: center;">
+                    <img wicket:id="jobStatusIcon" src="img/weather-clear.png"/>
+                </div>
+                <div wicket:id="jobCount" id="jobCount" style="text-align: center; font-size: 10pt;">
+                    5/5
+                </div>
+            </div>
+            
+            <div id="title" style="vertical-align: middle; float: left;">
+                <div id="jobTitle">
+                    <span wicket:id="jobTitle" style="font-weight: bold; font-size: 14pt;">My First Job</span>
+                </div>
+                <div id="jobDetails">
+                    <span wicket:id="jobRunTimeStamp" style="font-size: 12pt;">Last Run 2-12-2010 5:00am, Success</span>
+                </div>
+                <div id="jobCommands">
+                    <a wicket:id="runNowLnk" style="color:green; font-size: 12pt;" href="#">Run Now<img src="img/media-playback-start.png" style="border: none;"/></a>&nbsp;
+                    <a wicket:id="historyLnk" style="color:green; font-size: 12pt;" href="#">View History&nbsp;<img src="img/utilities-terminal.png" style="border: none;"/></a>
+                </div>
+            </div>
+            
+        </div>
+        
+        <wicket:remove>
+        <div id="item2" style="width: 600px; float: left; margin-bottom: 10px; margin-left: 10px;">
+            
+            <div id="idicator2" style="width: 40px; float: left;">
+                <div id="statusIcon2" style="text-align: center;">
+                    <img src="img/weather-few-clouds.png"/>
+                </div>
+                <div id="jobCount2" style="text-align: center; font-size: 10pt;">
+                    3/5
+                </div>
+            </div>
+            
+            <div id="title2" style="vertical-align: middle; float: left;">
+                <div id="jobTitle2">
+                    <span style="font-weight: bold; font-size: 14pt;">My Second Job</span>
+                </div>
+                <div id="jobDetails2">
+                    <span style="font-size: 12pt;">Last Run 2-12-2010 6:00am, Success</span>
+                </div>
+                <div id="jobCommands2">
+                    <a style="color:green; font-size: 12pt;" href="#">Run Now<img src="img/media-playback-start.png" style="border: none;"/></a>
+                </div>
+            </div>
+        </div>
+          
+        <div id="item3" style="width: 600px; float: left; margin-bottom: 10px; margin-left: 10px;">
+            
+            <div id="idicator3" style="width: 40px; float: left;">
+                <div id="statusIcon3" style="text-align: center;">
+                    <img src="img/weather-showers-scattered.png"/>
+                </div>
+                <div id="jobCount3" style="text-align: center; font-size: 10pt;">
+                    0/5
+                </div>
+            </div>
+            
+            <div id="title3" style="vertical-align: middle; float: left;">
+                <div id="jobTitle3">
+                    <span style="font-weight: bold; font-size: 14pt;">My Third Scheduled Job</span>
+                </div>
+                <div id="jobDetails3">
+                    <span style="font-size: 12pt;">Last Run 2-12-2010 6:00am, Success</span>
+                </div>
+                <div id="jobCommands3">
+                    <a style="color:green; font-size: 12pt;" href="#">Run Now<img src="img/media-playback-start.png" style="border: none;"/></a>
+                </div>
+            </div>
+            
+        </div>
+        </wicket:remove>
+        
+        <br style="clear:both; line-height:0;"/>
+    </div>
+    
+    <button wicket:id="manageBtn" type="button" style="vertical-align: middle;">
+        <table><tr><td><img src="img/preferences-system.png" style="border: none"/></td><td style="vertical-align: middle">Manage Jobs</td></tr></table></button>
+    
+</body>
+</html>

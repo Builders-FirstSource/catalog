@@ -1,0 +1,11 @@
+#Fri Jan 07 10:46:40 PST 2011
+WARNING=DO NOT MODIFY THIS FILE IF YOU DON'T UNDERSTAND
+defaultDestination=C\:/java_dev/apache-tomcat-6.0.20/webapps/catalog/css
+defaultVariables=
+eclipse.preferences.version=1
+includeTeamPrivateFiles=false
+map|0=src/main/webapp/WEB-INF/jsp|C\:/dev/app_servers/apache-tomcat-6.0.26_v2/apache-tomcat-6.0.26/webapps/catalog/WEB-INF/jsp|,|,|,
+map|1=src/main/webapp/css|C\:/java_dev/apache-tomcat-6.0.20/webapps/catalog/css|,|,|,
+map|2=src/main/webapp/images|C\:/java_dev/apache-tomcat-6.0.20/webapps/catalog/images|,|,|,
+map|3=src/main/webapp/js|C\:/java_dev/apache-tomcat-6.0.20/webapps/catalog/js|,|,|,
+useCurrentDateForDestinationFiles=false

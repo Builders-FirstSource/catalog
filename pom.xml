@@ -1,0 +1,183 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.probuild.retail.web.catalog</groupId>
+	<artifactId>catalog</artifactId>
+	<packaging>pom</packaging>
+	<name>Product search catalog</name>
+	<version>1.0.0</version>
+	<description>Search retail products on the web</description>
+  
+    <organization>
+      <name>Probuild</name>
+      <url>http://www.probuild.com</url>
+    </organization>
+  
+    <developers>
+		<developer>
+		    <id>jsimmons</id>
+		    <name>Joseph Simmons</name>
+		    <email>joseph.simmons@probuild.com</email>
+		    <organization>Probuild</organization>
+		    <organizationUrl>http://www.probuild.com</organizationUrl>
+		    <roles>
+		        <role>Developer</role>
+		    </roles>
+		    <timezone>-8</timezone>
+		</developer>
+    </developers>
+	
+	<properties>
+	   <nexus.url>http://10.36.3.130:8080/nexus</nexus.url>
+	   <sventon.url>http://10.36.3.130:8080/svn</sventon.url>
+	   
+	    <!-- remote sonar server -->
+        <sonar.jdbc.url>jdbc:mysql://10.36.3.130:3306/sonar?useUnicode=true&amp;characterEncoding=utf8</sonar.jdbc.url>
+        <sonar.jdbc.driver>com.mysql.jdbc.Driver</sonar.jdbc.driver>
+        <sonar.host.url>http://10.36.3.130:8080/sonar</sonar.host.url>
+	</properties>   
+	
+	<scm>
+        <connection>scm:svn:http://ddcsvn001d.dev.probuild.com:3690/svn/appdev/applications/Retail/WebCatalog/trunk/catalog</connection>
+        <url>${sventon.url}/repos/probuildSVN/list/applications/Retail/WebCatalog?revision=HEAD</url>
+    </scm>
+    
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>Internal Releases</name>
+            <url>${nexus.url}/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>Internal Snapshots</name>
+            <url>${nexus.url}/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <site>
+            <id>projectSite</id>
+            <url>scp://10.36.3.130/var/www/html/catalog</url>
+        </site>
+        
+    </distributionManagement>
+  
+  
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.6.1</version>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.sonar-plugins</groupId>
+                <artifactId>maven-report</artifactId>
+            </plugin>
+        </plugins>
+    </reporting>
+  
+  
+	<modules>
+		<module>catalog-ext</module>
+		<module>catalog-client</module>
+		<module>catalog-ui</module>
+	</modules>
+  
+  
+	<dependencies>
+	
+	</dependencies>
+  
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.0.2</version>
+                    <configuration>
+                        <source>1.5</source>
+                        <target>1.5</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>2.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>2.1-beta-1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.4.3</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-scm-plugin</artifactId>
+                    <version>1.2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-plugin</artifactId>
+                <configuration>
+                    <connectionType>connection</connectionType>
+                    <tag>${project.version}-${env.BUILD_NUMBER}</tag>
+                    <message>Tagged by Hudson</message>
+                    <username>${svn.user}</username>
+                    <password>${svn.password}</password>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+  
+  
+    <repositories>
+        <repository>
+            <id>MavenCentral</id>
+            <name>Maven Central</name>
+            <url>${nexus.url}/content/repositories/central</url>
+        </repository>
+        <repository>
+            <id>JavaDevRepo</id>
+            <name>Java Dev Repo</name>
+            <url>${nexus.url}/content/repositories/java-dev</url>
+        </repository>
+        <repository>
+            <id>JBossRepo</id>
+            <name>JBoss Repo</name>
+            <url>${nexus.url}/content/repositories/jboss</url>
+        </repository>
+        <repository>
+            <id>CodehausRepo</id>
+            <name>Codehaus Repo</name>
+            <url>${nexus.url}/content/repositories/codehaus</url>
+        </repository>
+        <repository>
+            <id>thridParty</id>
+            <name>3rd Party Repo</name>
+            <url>${nexus.url}/content/repositories/thirdparty</url>
+        </repository>
+        <repository>
+            <id>sonar</id>
+            <name>Sonar Local</name>
+            <url>${nexus.url}/content/repositories/sonar</url>
+        </repository>
+        <repository>
+            <id>snapshots</id>
+            <name>SouthWest Snapshots</name>
+            <url>${nexus.url}/content/repositories/snapshots</url>
+        </repository>
+        <repository>
+            <id>releases</id>
+            <name>SouthWest Releases</name>
+            <url>${nexus.url}/content/repositories/releases</url>
+        </repository>
+    </repositories>
+  
+</project>

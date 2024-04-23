@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+             version="1.0">
+   <persistence-unit name="dataSyncDatabase" transaction-type="RESOURCE_LOCAL">
+      <provider>org.hibernate.ejb.HibernatePersistence</provider>
+      <!-- jta-data-source>jdbc/dashboardDB</jta-data-source>-->
+      <properties>
+         <property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver"/>
+         <property name="hibernate.connection.username" value="sa"/>
+         <property name="hibernate.connection.password" value=""/>
+         <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+         <property name="hibernate.hbm2ddl.auto" value="update"/>
+         <property name="hibernate.show_sql" value="true"/>
+         <property name="hibernate.cache.provider_class" value="org.hibernate.cache.HashtableCacheProvider"/>
+
+         <!--property name="hibernate.connection.url" value="jdbc:hsqldb:file:C:/java_dev/dashboard/dashboard.db"/>-->
+         <!-- Dev
+         <property name="hibernate.connection.url" value="jdbc:hsqldb:file:C:/datasync/db/dashboard.db"/>-->
+
+		 <!-- Test(Unix 132)
+		 <property name="hibernate.connection.url" value="jdbc:hsqldb:file:/opt/dashboard/dashboard.db"/>-->
+
+		 <!-- SANCATADMIN - Production-->
+		  <property name="hibernate.connection.url" value="jdbc:hsqldb:file:C:/java_dev/dashboard/dashboard.db"/>
+
+
+<!--         <property name="hibernate.c3p0.max_size" value="1"/>-->
+<!--         <property name="hibernate.c3p0.min_size" value="0"/>-->
+<!--         <property name="hibernate.c3p0.timeout" value="5000"/>-->
+<!--         <property name="hibernate.c3p0.max_statements" value="100"/>-->
+<!--         <property name="hibernate.c3p0.idle_test_period" value="300"/>-->
+<!--         <property name="hibernate.c3p0.acquire_increment" value="2"/>-->
+
+      </properties>
+   </persistence-unit>
+</persistence>

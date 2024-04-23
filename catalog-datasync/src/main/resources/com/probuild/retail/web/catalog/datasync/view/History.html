@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+                      "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>History</title>
+</head>
+<body>
+    <a wicket:id="homeLnk" href="#" style="font-size: 12pt;"><img src="img/go-home.png" style="border: none;"/>Home</a> &nbsp; | &nbsp;
+    <a wicket:id="manageLnk" href="#" style="font-size: 12pt;"><img src="img/preferences-system.png" style="border: none;"/>Manage Jobs</a>
+
+    <br/>
+    <br/>
+    
+    <span style="font-size: 16pt">Job History</span><br/>
+    <span wicket:id="jobName">Price Update Job</span>
+    
+    <div wicket:id="history" style="width: 650px;">
+        <div id="item" style="width: 600px; float: left; margin-bottom: 10px; margin-left: 10px;">
+            
+            <div id="line" style="width: 20px; float: left;">
+                <div wicket:id="rowNumber" style="text-align: right; font-size:14pt;">
+                    1.
+                </div>
+            </div>
+            
+            <div id="title" style="vertical-align: middle; float: left;">
+                <div id="jobDetails">
+                    <span wicket:id="jobRunTimeStamp" style="font-size: 14pt;">Run 2-12-2010 5:00am, Success</span>&nbsp;
+                    <a wicket:id="historyLnk" href="#"><img style="border: none" src="img/utilities-terminal.png"/></a>
+                </div>
+            </div>
+            
+        </div>
+        
+        <wicket:remove>
+        <div id="item" style="width: 600px; float: left; margin-bottom: 10px; margin-left: 10px;">
+            
+            <div id="line" style="width: 10px; float: left;">
+                <div id="jobCount2" style="text-align: right; font-size:14pt;">
+                    1.
+                </div>
+            </div>
+            
+            <div id="title" style="vertical-align: middle; float: left;">
+                <div id="jobDetails">
+                    <span style="font-size: 14pt;">Run 2-12-2010 5:00am, Success</span>&nbsp;
+                    <a href="#"><img style="border: none" src="img/utilities-terminal.png"/></a>
+                </div>
+            </div>
+            
+        </div>
+          
+        <div id="item" style="width: 600px; float: left; margin-bottom: 10px; margin-left: 10px;">
+            
+            <div id="line" style="width: 20px; float: left;">
+                <div id="jobCount2" style="text-align: right; font-size:14pt;">
+                    1.
+                </div>
+            </div>
+            
+            <div id="title" style="vertical-align: middle; float: left;">
+                <div id="jobDetails">
+                    <span style="font-size: 14pt;">Run 2-12-2010 5:00am, Success</span>&nbsp;
+                    <a href="#"><img style="border: none" src="img/utilities-terminal.png"/></a>
+                </div>
+            </div>
+            
+        </div>
+        </wicket:remove>
+        
+        <br style="clear:both; line-height:0;"/>
+    </div>
+    
+</body>
+</html>

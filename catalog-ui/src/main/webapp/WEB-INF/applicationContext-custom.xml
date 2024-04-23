@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="blPersistenceUnitManager"
+          class="org.broadleafcommerce.extensibility.jpa.MergePersistenceUnitManager">
+        <property name="persistenceXmlLocations">
+            <list>
+                <value>classpath*:/META-INF/persistence-container.xml</value>
+            </list>
+        </property>
+        <property name="dataSources">
+            <map>
+                <entry key="jdbc/web" value-ref="blDS"/>
+                <entry key="jdbc/webSecure" value-ref="blDS"/>
+            </map>
+        </property>
+        <property name="defaultDataSource" ref="blDS"/>
+    </bean>
+    
+    <bean id="blDS" class="org.springframework.jndi.JndiObjectFactoryBean" >
+        <property name="jndiName" value="java:comp/env/jdbc/catalogDB"/>
+    </bean>
+<!--    <bean id="blDS" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">-->
+<!--		<property name="driverClassName" value="com.mysql.jdbc.Driver" />-->
+<!--        <property name="url" value="jdbc:mysql://10.36.3.132:3306/broadleafcommerce?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF8" />-->
+<!--        <property name="username" value="store" />-->
+<!--        <property name="password" value="st0re" />-->
+<!--        -->
+<!--	</bean>-->
+    
+	<!--
+	<bean id="customerStateAOP" class="org.broadleafcommerce.profile.aop.test.CustomerStateAOP"/>
+
+    <aop:config>
+        <aop:aspect id="customerAspect" ref="customerStateAOP">
+            <aop:pointcut id="customerRetrievalMethod" expression="execution(* org.broadleafcommerce.profile.web.CustomerState.getCustomer(javax.servlet.http.HttpServletRequest))"/>
+            <aop:around method="processCustomerRetrieval" pointcut-ref="customerRetrievalMethod"/>
+        </aop:aspect>
+    </aop:config>
+    -->
+	<!-- override the default catalog service with are new one -->
+    <!-- probably could have used this technique elsewhere -->
+    <bean name="blCatalogService" class="com.probuild.retail.web.catalog.ext.service.CatalogServiceExtImpl"/>
+    
+    <bean name="blCatalogServiceExt" class="com.probuild.retail.web.catalog.ext.service.CatalogServiceExtImpl"/>
+    <bean name="blSkuDaoExt" class="com.probuild.retail.web.catalog.ext.dao.SkuDaoExtImpl"/>
+    <bean name="blCategoryDaoExt" class="com.probuild.retail.web.catalog.ext.dao.CategoryDaoExtImpl"/>
+    <bean name="blProductDaoExt" class="com.probuild.retail.web.catalog.ext.dao.ProductDaoExtImpl"/>
+    
+    
+    <bean id="org.broadleafcommerce.catalog.domain.Product" class="com.probuild.retail.web.catalog.ext.domain.ProductExtImpl" scope="prototype"/>
+    <bean id="org.broadleafcommerce.catalog.domain.Sku" class="com.probuild.retail.web.catalog.ext.domain.SkuExtImpl" scope="prototype"/>
+    <bean id="org.broadleafcommerce.catalog.domain.SkuAttribute" class="com.probuild.retail.web.catalog.ext.domain.SkuAttributeExtImpl" scope="prototype"/>
+    <bean id="org.broadleafcommerce.catalog.domain.CategoryProduct" class="com.probuild.retail.web.catalog.ext.domain.CategoryProductExtImpl" scope="prototype"/>
+    <bean id="org.broadleafcommerce.catalog.domain.Category" class="com.probuild.retail.web.catalog.ext.domain.CategoryExtImpl" scope="prototype"/>
+    
+    
+    
+    <tx:annotation-driven transaction-manager="blTransactionManager"/>
+    
+</beans>

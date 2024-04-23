@@ -1,0 +1,8 @@
+#Thu Mar 31 08:44:58 PDT 2011
+WARNING=DO NOT MODIFY THIS FILE IF YOU DON'T UNDERSTAND
+defaultDestination=C\:/dev/app_servers/apache-tomcat-6.0.26_v2/apache-tomcat-6.0.26/webapps/catalog/WEB-INF/classes/com
+defaultVariables=
+eclipse.preferences.version=1
+includeTeamPrivateFiles=false
+map|0=target/classes/com|,|,|,|,
+useCurrentDateForDestinationFiles=false

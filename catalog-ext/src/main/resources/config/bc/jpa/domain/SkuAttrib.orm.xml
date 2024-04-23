@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd" version="1.0">
+
+    <named-query name="PB_READ_SKU_ATTRIB_BY_SKU_ID">
+        <query>SELECT skuAttrib FROM org.broadleafcommerce.catalog.domain.SkuAttributeImpl skuAttrib
+        WHERE skuAttrib.sku.id IN (:skuIds)</query>
+    </named-query>
+
+    <named-query name="PB_READ_SKUS_BY_ATTRIB_ID">
+        <query>SELECT DISTINCT skuAttrib.sku FROM org.broadleafcommerce.catalog.domain.SkuAttributeImpl skuAttrib
+        WHERE skuAttrib.id IN (:skuAttribIds)</query>
+    </named-query>
+
+    <named-query name="PB_READ_ALL_SKU_ATTRIBUTES">
+        <query>SELECT skuAttrib FROM org.broadleafcommerce.catalog.domain.SkuAttributeImpl skuAttrib</query>
+    </named-query>
+
+    <named-query name="PB_READ_ALL_PRODUCTS" >
+        <query>SELECT product FROM com.probuild.retail.web.catalog.ext.domain.ProductExtImpl product</query>
+    </named-query>
+
+    <named-query name="PB_READ_PRODUCTS_BY_PRODUCTIDS" >
+        <query>SELECT product FROM com.probuild.retail.web.catalog.ext.domain.ProductExtImpl product
+        WHERE product.id IN (:id)</query>
+    </named-query>
+
+
+    <named-query name="PB_READ_ACTIVE_PRODUCTS_BY_CATEGORY" >
+        <query>SELECT categoryProduct.categoryProductXref.product FROM com.probuild.retail.web.catalog.ext.domain.CategoryProductExtImpl categoryProduct
+        WHERE categoryProduct.categoryProductXref.category.id = :categoryId
+        AND categoryProduct.categoryProductXref.product.activeStartDate &lt;= CURRENT_DATE()
+        AND (categoryProduct.categoryProductXref.product.activeEndDate &gt; CURRENT_DATE() OR categoryProduct.categoryProductXref.product.activeEndDate = null)
+        ORDER BY categoryProduct.categoryProductXref.product.name
+        </query>
+    </named-query>
+
+    <named-query name="PB_READ_ACTIVE_PRODUCTS_BY_CATEGORY_SIZE" >
+        <query>SELECT COUNT(categoryProduct.categoryProductXref.product) FROM com.probuild.retail.web.catalog.ext.domain.CategoryProductExtImpl categoryProduct
+        WHERE categoryProduct.categoryProductXref.category.id = :categoryId
+        AND categoryProduct.categoryProductXref.product.activeStartDate &lt;= CURRENT_DATE()
+        AND (categoryProduct.categoryProductXref.product.activeEndDate &gt; CURRENT_DATE() OR categoryProduct.categoryProductXref.product.activeEndDate = null)
+        </query>
+    </named-query>
+
+    <named-query name="PB_READ_PRODUCTS_BY_CATEGORY" >
+        <query>SELECT categoryProduct.categoryProductXref.product FROM com.probuild.retail.web.catalog.ext.domain.CategoryProductExtImpl categoryProduct
+        WHERE categoryProduct.categoryProductXref.category.id = :categoryId
+        ORDER BY categoryProduct.displayOrder
+        </query>
+    </named-query>
+
+    <named-query name="PB_READ_PRODUCTS_BY_SKU_NUM" >
+        <query>SELECT product FROM com.probuild.retail.web.catalog.ext.domain.ProductExtImpl product, IN(product.allSkus) sku
+        WHERE sku.sku = :skuNum</query>
+    </named-query>
+
+
+    <named-query name="PB_READ_ALL_CATEGORIES">
+        <query>SELECT category FROM com.probuild.retail.web.catalog.ext.domain.CategoryExtImpl category</query>
+    </named-query>
+
+    <named-query name="PB_READ_CATEGORY_BY_NAME">
+        <query>SELECT category FROM com.probuild.retail.web.catalog.ext.domain.CategoryExtImpl category
+        WHERE name = :categoryName</query>
+    </named-query>
+
+    <named-query name="PB_READ_ALL_SUBCATEGORIES">
+        <query>SELECT category FROM com.probuild.retail.web.catalog.ext.domain.CategoryExtImpl category
+        WHERE category.defaultParentCategory = :defaultParentCategory</query>
+    </named-query>
+
+    <named-query name="PB_READ_CATEGORY_BY_URL_KEY">
+        <query>SELECT category FROM com.probuild.retail.web.catalog.ext.domain.CategoryExtImpl category
+        WHERE category.urlKey = :urlKey</query>
+    </named-query>
+
+    <named-query name="BC_READ_SEARCH_SYNONYMS" >
+        <query>SELECT searchSynonym FROM org.broadleafcommerce.search.domain.SearchSynonym searchSynonym</query>
+    </named-query>
+
+<!--    <named-query name="PB_READ_ACTIVE_PRODUCTS_BY_CATEGORY" >-->
+<!--        <query>SELECT categoryProduct.categoryProductXref.product FROM org.broadleafcommerce.catalog.domain.CategoryProductImpl categoryProduct-->
+<!--        WHERE categoryProduct.categoryProductXref.category.id = :categoryId-->
+<!--        AND categoryProduct.categoryProductXref.product.activeStartDate &lt;= CURRENT_DATE()-->
+<!--        AND (categoryProduct.categoryProductXref.product.activeEndDate &gt; CURRENT_DATE() OR categoryProduct.categoryProductXref.product.activeEndDate = null)-->
+<!--        ORDER BY categoryProduct.displayOrder-->
+<!--        </query>-->
+<!--    </named-query>-->
+
+    <named-query name="PB_READ_IMAGE_BY_IMAGE_NAME">
+        <query>SELECT catalogImage FROM com.probuild.retail.web.catalog.ext.dao.CatalogImagesDaoImpl catalogImage
+        WHERE catalogImage.imageURL = :urlKey</query>
+    </named-query>
+
+
+    <named-query name="PB_READ_IMAGE_BY_PRODUCTID">
+        <query>SELECT catalogImage FROM com.probuild.retail.web.catalog.ext.dao.CatalogImagesDaoImpl catalogImage
+        WHERE catalogImage.productId = :productId</query>
+    </named-query>
+
+    <named-query name="PB_READ_IMAGES_BY_PRODUCTIDS">
+        <query>SELECT catalogImage FROM com.probuild.retail.web.catalog.ext.dao.CatalogImagesDaoImpl catalogImage
+        WHERE catalogImage.newImage = :newImage
+        AND catalogImage.productId IN (:productId)</query>
+    </named-query>
+
+
+	<named-query name="PB_UPDATE_NEWIMAGE_BY_PRODUCTIDS">
+        <query>UPDATE com.probuild.retail.web.catalog.ext.dao.CatalogImagesDaoImpl catalogImage
+        SET catalogImage.newImage = :newImage
+        WHERE catalogImage.productId IN (:productId)</query>
+    </named-query>
+
+	<named-query name="PB_READ_SKUAVAIL_BY_SKUID">
+        <query>SELECT skuAvail FROM com.probuild.retail.web.catalog.ext.domain.SkuAvailabilityExtImpl skuAvail
+        WHERE skuAvail.skuId = :skuId</query>
+    </named-query>
+
+
+    <named-query name="PB_READ_SKUAVAIL_BY_SKUID_LOCID">
+        <query>SELECT skuAvail FROM com.probuild.retail.web.catalog.ext.domain.SkuAvailabilityExtImpl skuAvail
+        WHERE skuAvail.skuId = :skuId
+        AND skuAvail.locId = :locId</query>
+    </named-query>
+
+
+    <named-query name="PB_READ_SKUAVAIL_BY_SKUIDS">
+        <query>SELECT skuAvail FROM com.probuild.retail.web.catalog.ext.domain.SkuAvailabilityExtImpl skuAvail
+        WHERE skuAvail.skuId IN (:skuIds)</query>
+    </named-query>
+
+
+	<named-query name="PB_DELETE_SKUAVAIL_BY_SKUID">
+        <query>DELETE FROM com.probuild.retail.web.catalog.ext.domain.SkuAvailabilityExtImpl skuAvail
+        WHERE skuAvail.skuId = :skuId</query>
+    </named-query>
+</entity-mappings>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+
+<!--    <appender name="CatalogAdminFileAppender"-->
+<!--        class="org.apache.log4j.RollingFileAppender">-->
+<!--        <param name="File" value="catalogAdmin.log" />-->
+<!--        <param name="Append" value="true" />-->
+<!--        <param name="MaxBackupIndex" value="10" />-->
+<!--        <layout class="org.apache.log4j.PatternLayout">-->
+<!--            <param name="ConversionPattern" value="%d [%t] %p [%C{1}.%M() %L] - %m%n" />-->
+<!--        </layout>-->
+<!--    </appender>-->
+    
+    <appender name="CatalogAdminConsoleAppender"
+        class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <!-- <param name="ConversionPattern" value="%d [%t] %p [%C{1}.%M() %L] - %c %m%n" /> -->
+        </layout>
+    </appender>
+
+    <logger name="com.probuild.retail.web.catalog">
+        <level value="debug" />
+<!--        <appender-ref ref="CatalogAdminConsoleAppender" />-->
+    </logger>
+    
+    <logger name="com.probuild.retail.web.catalog.upload">
+        <level value="debug" />
+<!--        <appender-ref ref="CatalogAdminConsoleAppender" />-->
+    </logger>
+    
+    
+    <root>
+        <priority value="info" />
+        <appender-ref ref="CatalogAdminConsoleAppender" />
+    </root>
+
+</log4j:configuration>

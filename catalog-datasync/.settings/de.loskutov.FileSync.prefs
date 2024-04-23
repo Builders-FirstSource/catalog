@@ -1,0 +1,10 @@
+#Tue Feb 16 11:23:54 PST 2010
+WARNING=DO NOT MODIFY THIS FILE IF YOU DON'T UNDERSTAND
+defaultDestination=C\:/java_dev/apache-tomcat-6.0.20/webapps/catalog-datasync-1.0.0/WEB-INF/classes/com/probuild/retail/web/catalog/datasync/domain
+defaultVariables=
+eclipse.preferences.version=1
+map|0=target/classes/com/probuild/retail/web/catalog/datasync/domain|C\:/java_dev/apache-tomcat-6.0.20/webapps/catalog-datasync-1.0.0/WEB-INF/classes/com/probuild/retail/web/catalog/datasync/domain|,|,|,
+map|1=target/classes/com/probuild/retail/web/catalog/datasync/service|C\:/java_dev/apache-tomcat-6.0.20/webapps/catalog-datasync-1.0.0/WEB-INF/classes/com/probuild/retail/web/catalog/datasync/service|,|,|,
+map|2=target/classes/com/probuild/retail/web/catalog/datasync/view|C\:/java_dev/apache-tomcat-6.0.20/webapps/catalog-datasync-1.0.0/WEB-INF/wicket/com/probuild/retail/web/catalog/datasync/view|,|,|,
+map|3=target/classes/com/probuild/retail/web/catalog/datasync/job|C\:/java_dev/apache-tomcat-6.0.20/webapps/catalog-datasync-1.0.0/WEB-INF/classes/com/probuild/retail/web/catalog/datasync/job|,|,|,
+useCurrentDateForDestinationFiles=false

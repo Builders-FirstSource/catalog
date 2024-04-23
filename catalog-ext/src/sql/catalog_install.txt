@@ -1,0 +1,72 @@
+Catalog Setup Notes
+3/12/2010
+---------------------------------------------------------------------
+
+#A. Install MySQL.
+#	1. Download Windows MySQL Server (version used: Mysql-Essentials-5.1.44)
+#	2. Launch installer by double clicking on downloaded file.
+#	3. Choose custom setup. Select the F: drive or other data drive for
+#	   location of datafiles.
+#	4. Run optimization after install. Choose defaults, except for
+#	   InnoDB location- choose F: drive again
+#	   Server type- multiuse
+
+A. Install MS SQL Server 2003+
+    1. Install or locate an existing instance of SQL Server.
+
+#B. Load Schema
+#	1. Create the catalog schema using the GUI tools or mysql cmd
+#	2. Create the store user with GUI or mysql cmd. Grant all on catalog schema
+#	3. Load the schema tables with mysql cmd
+#	   mysql% SOURCE c:/catalog_create.sql
+#	4. Load the seed data with mysql cmd
+#	   mysql% SOURCE c:/catalog_seed.sql
+#	5. Add the base category.
+#	   INSERT INTO catalog.blc_category VALUES ( 1, '2018-01-15 00:00:00', '2010-01-15 00:00:00', 'Store', '', 'Root Category', 'Store', '', 'store', null );
+
+B. Load Schema
+	1. Create the catalog schema using the SQL Server Manager.
+	2. Create the catalog user with SQL Server Manager. Make user database owner.
+	3. Load the schema using the query analyizer. mssql_catalog_create.sql
+	4. Load the seed data with the query analyizer. mssql_catalog_seed.sql
+	5. Add the base category.
+	   INSERT INTO catalog.blc_category VALUES ( 1, '2018-01-15 00:00:00', '2010-01-15 00:00:00', 'Store', '', 'Root Category', 'Store', '', 'store', null );
+	
+	   
+C. Install Application
+    1. Download and install Java 1.6
+	2. Download tomcat 6.0 for windows and use installer
+	3. Harden the server using CIS Apache Tomcat Benchmark document.
+	
+D. Deploy the application
+    #1. copy mysql connector-j jar to tomcat lib folder
+	1. copy the jtds jar to the tomcate lib folder
+	2. Setup the datasource in the context
+	   $CATALINA_HOME/conf/Catalina/localhost/catalog.xml
+	   
+	   contents similar to:
+	   	<Context reloadable="false">
+		    <Resource name="jdbc/catalogDB" auth="Container" type="javax.sql.DataSource"
+                      maxActive="100" maxIdle="30" maxWait="10000"
+                      username="store" password="st0re" driverClassName="net.sourceforge.jtds.jdbc.Driver"
+                      url="jdbc:jtds:sqlserver://10.37.1.242/catalog;appName=web_catalog;progName=web_catalog;"/>
+        </Context>
+	    
+#		<Context reloadable="false">
+#		    <Resource name="jdbc/catalogDB" auth="Container" type="javax.sql.DataSource"
+#               maxActive="100" maxIdle="30" maxWait="10000"
+#               username="store" password="st0re" driverClassName="com.mysql.jdbc.Driver"
+#               url="jdbc:mysql://192.168.200.13:3306/catalog?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF8"/>
+#        </Context>
+		
+		
+	3. Set the environment variable: CATALOG_IMAGE_DIR=<tomcat_home>/webapps/catalog
+	4. Drop the production version of catalog.war in the webapps folder.
+	5. Configure the search indexing job in the WEB-INF/applicationContext-search.xml file. Schedule to run a 10pm using Cron expression.
+	6. Start tomcat.
+	7. Verify admin tool loads correctly.
+	    http://webdlc:8080/catalog/catalogwebstart/catalogAdmin.jnlp
+    8. Setup a datasync job using the datasync.war. Run this some where that the AS400 and the catalog service are visible. 
+	     java -Ddashboard.home=C:\java_dev\datasync -Ddashboard.port=8082 -jar catalog-datasync-1.0.0.war
+	   Dashboard home is the place where your jython scripts will go in the 'scripts' folder 
+	   Go to http://localhost:8082/dashboard
